@@ -1,0 +1,50 @@
+@import "bootstrap";
+@import "bootstrap-sprockets";
+
+.center {
+	text-align: center;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  margin-left: 30px;
+  font-size: 2.3em;
+  color: white;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.navbar {
+	background-color: #2447B2;
+	height: 40px;
+}
+
+.header_link {
+	color: white;
+}
+
+body {
+	margin-top: 30px;
+}
+
+#home_box {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #E6E6E6;
+	width: 80%;
+}
+
+.welcome_box {
+	margin-top: 20px;
+}
+
+.signin_box {
+	margin-top: 100px;
+}
