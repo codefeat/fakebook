@@ -1,6 +1,6 @@
 module UsersHelper
 
-	def full_name(user)
-		user.first_name + " " + user.last_name
+	def self.full_name
+		self.first_name + " " + self.last_name
 	end
 end
