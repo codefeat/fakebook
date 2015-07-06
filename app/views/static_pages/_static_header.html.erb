@@ -7,12 +7,12 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-inline'})do |f| %>
   <div class="form-group">
     <%= f.label :email, class: "sr-only" %>
-    <li><%= f.email_field :email, autofocus: true, id: "inputEmail", class: "form-control",  placeholder: "Email" %></li>
+    <li><%= f.email_field :email, autofocus: true, id: "inputEmail", class: " signin-field",  placeholder: "Email" %></li>
   </div>
 
   <div class="form-group">
     <%= f.label :password, class: "sr-only"%>
-    <%= f.password_field :password, autocomplete: "off", id: "inputPassword", class: "form-control", placeholder: "Password" %>
+    <%= f.password_field :password, autocomplete: "off", id: "inputPassword", class: "signin-field", placeholder: "Password" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -22,8 +22,8 @@
     </div>
   <% end -%>
 
-  <div class="btn btn-primary">
-    <%= f.submit "Log in" %>
+  <div class="btn">
+    <%= f.button "Log in" %>
   </div>
 
 
