@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, :email, presence: true
 
+  after_create :create_profile
+
+  has_one :profile
+
   	def full_name
 		self.first_name + " " + self.last_name
 	end

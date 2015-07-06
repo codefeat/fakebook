@@ -15,6 +15,8 @@ gem 'bootstrap-sass',	'3.2.0.0'
 gem 'devise'
 
 group :development, :test do
+
+  gem 'rspec-rails', '~> 3.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -25,3 +27,6 @@ group :development, :test do
   gem 'spring'
 end
 
+group :test do
+	gem 'rspec-rails', '~> 3.0'
+end

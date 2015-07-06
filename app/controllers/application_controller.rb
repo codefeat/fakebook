@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :require_login
+
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :require_login
 
 
 protected
@@ -14,9 +15,10 @@ protected
 private
 
 	def require_login
-		unless current_user
+		unless user_signed_in?
 			flash[:error] = "You must log in to use the site"
 			redirect_to root_path
 		end
 	end
+
 end
