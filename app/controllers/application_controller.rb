@@ -21,4 +21,10 @@ private
 		end
 	end
 
+  def authorize_correct_user
+    unless current_user.id = params[:id]
+      flash[:error] = "You are not authorized to access this page"
+      redirect_to root_path
+    end
+  end
 end

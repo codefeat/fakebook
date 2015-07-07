@@ -1,2 +1,6 @@
 <h1><%= @user.full_name %>'s Timeline</h1>
 <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+<p><%= @user.profile.location %></p>
+<p><%= @user.profile.gender %></p>
+<p><%= @user.profile.birthday %></p>
+<%= link_to "Edit Profile", edit_profile_path(@user.id) %>
