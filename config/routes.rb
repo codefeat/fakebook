@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: { registrations: "registrations"}
+  devise_for :users, controllers: { registrations: "registrations", 
+    omniauth_callbacks: "omniauth_callbacks"}
 
   root 'static_pages#home'
   get 'timeline' => 'users#timeline'
 
   resources :profiles, :only => [:edit, :update, :show]
+  resources :posts, :only => [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

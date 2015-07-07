@@ -1,0 +1,9 @@
+<% @posts.sort_by{ |p| p.created_at}.reverse.each do |post| %>
+
+<div class="post-box">
+<p><%= post.user.full_name %> posted:</p>
+<p>"<%= post.content %>"</p>
+<p><%= time_ago_in_words(post.created_at) %> ago</p>
+</div>
+
+<% end %>

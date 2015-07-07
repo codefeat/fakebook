@@ -31,13 +31,14 @@
 }
 
 body {
+	background-color: #E6E6E6;
 	margin-top: 30px;
 }
 
 #home_box {
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #E6E6E6;
+
 	width: 80%;
 }
 
@@ -58,5 +59,13 @@ body {
 }
 
 .spacer {
-	margin-top: 30px;
+	height: 30px;
+}
+
+.post-box {
+	padding: 10px;
+	width: 75%;
+	background-color: white;
+	margin-top: 25px;
+	border-bottom: 2px;
 }

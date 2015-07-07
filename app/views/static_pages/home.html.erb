@@ -1,6 +1,14 @@
 <div class="container" id="home_box">
 
+	<div class="col-md-12 ">
+		 <%flash.each do |message_type, message| %>
+    <div class="alert alert-<%message_type %>"><p class="center"><%= message %></p></div>
+   <% end %>
+   </div>
+
 	<div class="col-md-6 welcome_box">
+
+
 		<h2 class="center">Welcome to fakebook</h2>
 		<p>This site is a clone of a popular site you may have seen before. You should find much of the same functionality available here.</p>
 		<p>You will be able to:</p>
@@ -12,15 +20,18 @@
 	</div>
 
 	<div class="col-md-6 welcome_box signin_box">
+ 
 	<p class="center">To get started, please sign in securely using your facebook account or create a new account below</p>
 
 	<br><br>
 
-	<p class="center">------- OmniAuth Image Placeholder --------</p>
+	<p class="center"><%= link_to image_tag("fb_login.png", size: "300x60"), user_omniauth_authorize_path(:facebook) %></p>
 
-	<br><br>
+	<br>
 
-	<p class="center">OR</p>
+	<p class="center"><em>OR</em></p>
+
+	<br>
 
 	<%= render "signup_form" %>
 
