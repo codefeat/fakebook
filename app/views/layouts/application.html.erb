@@ -15,9 +15,12 @@
 <%= render "shared/application_header" %>
 <div class="spacer"></div>
 <div class="container">
-	<% flash.each do |message_type, message| %>
-		<div class="alert alert-<%message_type %>"><%= message %></div>
-	<% end %>
+
+    <% flash.each do |key, value| %>
+        <div class="<%= flash_class(key) %>">
+              <%= value %>
+        </div>
+    <% end %>
 
 
 	<%= yield %>

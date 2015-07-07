@@ -1,6 +1,13 @@
+<div class="post-form-container">
+<div class="post-form-header">Update Status</div>
+
 <%= form_for(@post) do |p| %>
+<div class="post-form-entry">
+<%= p.text_area :content, size: "63x4", placeholder: "What's on your mind?" %>
+</div>
 
-<%= p.text_area :content, placeholder: "What's on your mind?" %>
-<%= p.submit "Post" %>
-
+<div class="post-form-footer">
+<%= p.submit "Post", class: "btn btn-primary" %>
+</div>
 <% end %>
+</div>

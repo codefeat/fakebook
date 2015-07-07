@@ -68,4 +68,35 @@ body {
 	background-color: white;
 	margin-top: 25px;
 	border-bottom: 2px;
+	border-radius: 5px;
 }
+
+.post-form-container {
+	width: 75%;
+	border-color: #DDDDDD;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.post-form-header {
+	padding: 5px;
+	background-color: #EDEDED;
+
+}
+
+.post-form-footer {
+	padding: 5px;
+
+	text-align: right;
+	background-color: #EDEDED;
+}
+
+.post-form-entry {
+
+	background-color: white;
+}
+
+textarea {
+	border: none;
+    resize: none;
+} 
