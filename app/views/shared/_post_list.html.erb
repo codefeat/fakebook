@@ -1,9 +1,16 @@
 <% @posts.sort_by{ |p| p.created_at}.reverse.each do |post| %>
 
 <div class="post-box">
-<p class="post-header"><%= post.user.full_name %> posted:</p>
+<table class="post-table">
+	<tr>
+		<th rowspan="2"><%= image_tag @user.profile.avatar.url(:thumb) %></th>
+		<td class="post-header"><%= post.user.full_name %> posted:</td>
+	</tr>
+	<tr>
+		<td><%= time_ago_in_words(post.created_at) %> ago</td>
+	</tr>
+</table><br/>
 <p>"<%= post.content %>"</p>
-<p><%= time_ago_in_words(post.created_at) %> ago</p>
 <% if current_user == post.user %>
 <p><%= link_to "Delete post", post, method: :delete,
 		data: { confirm: "Are you sure you want to delete this post?" } %></p>

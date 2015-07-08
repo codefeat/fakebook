@@ -1,7 +1,7 @@
 
 
 <div class="col-md-2">
-<%= image_tag @user.profile.avatar.url(:thumb) %>
+<%= image_tag @user.profile.avatar.url(:small) %>
 <p><%= @user.full_name %></p>
 <p><%= link_to "Edit Profile", edit_profile_path(@user.id) %></p>
 <p><%= @user.profile.location %></p>
