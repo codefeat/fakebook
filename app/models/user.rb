@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, :email, presence: true
 
+
   after_create :create_profile
 
   has_one :profile

@@ -2,6 +2,9 @@
 
 <%= form_for(@profile) do |p| %>
 	
+	<%= p.label :avatar %>
+	<%= p.file_field :avatar %>
+
 	<%= p.label :location %>
 	<%= p.text_field :location, class: "form_control" %><br/>
 
@@ -12,4 +15,5 @@
 	<%= p.date_select :birthday, start_year: 1910 %><br/>
 
 	<%= p.submit "Update" %>
+
 <% end %>
