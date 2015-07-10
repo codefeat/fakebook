@@ -1,0 +1,7 @@
+<div class="comment-container">
+	<table class="comment-table">
+	<th rowspan=2><%= image_tag comment.user.profile.avatar.url(:thumb) %></th>
+	<th><p class="comment-header"><%=link_to comment.user.full_name profile_path %> commented:</p>
+</th>
+</table>
+</div>
