@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
 
   after_create :create_profile
 
-  has_one :profile
-  has_many :posts
+  has_one :profile, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
   	def full_name
 		self.first_name + " " + self.last_name

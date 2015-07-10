@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   get 'timeline' => 'users#timeline'
-
-  resources :profiles, :only => [:edit, :update, :show]
+  get 'profiles/:id' => 'profiles#show'
+  resources :profiles, :only => [:edit, :update]
   resources :posts, :only => [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

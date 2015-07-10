@@ -10,11 +10,18 @@ class ProfilesController < ApplicationController
 		@profile = User.find(params[:id]).profile
 		if @profile.update_attributes(profile_params)
 			flash[:success] = "Profile updated successfully"
-			redirect_to timeline_path
+			redirect_to profile_path
 		else
 			flash[:error] = "Something happened"
 			redirect_to edit_profile_path
 		end
+	end
+
+	def show
+		@user = User.find(params[:id])
+		@profile = @user.profile
+		@post = Post.new
+		@posts = @user.posts
 	end
 
 private

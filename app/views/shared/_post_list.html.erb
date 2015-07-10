@@ -4,7 +4,7 @@
 <table class="post-table">
 	<tr>
 		<th rowspan="2"><%= image_tag @user.profile.avatar.url(:thumb) %></th>
-		<td class="post-header"><%= post.user.full_name %> posted:</td>
+		<td class="post-header"><%= link_to post.user.full_name, profile_path(post.user.id) %> posted:</td>
 	</tr>
 	<tr>
 		<td><%= time_ago_in_words(post.created_at) %> ago</td>
