@@ -7,5 +7,9 @@ RSpec.describe Profile, type: :model do
 			email: "js@sample.com", password: "testpass", password_confirmation: "testpass")
 		expect(user.profile) != nil
 	end
-  
+
+	it "can be edited by its owner"
+  		current_user = user
+  		user.profile.update_attributes(location: "Chicago", gender: "Male", birthday: "09/11/1984")
+  		
 end

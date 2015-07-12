@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 	before_action :correct_user, :only => [:destroy]
+	
 	def new
 		@post = Post.new
 	end
@@ -12,7 +13,7 @@ class PostsController < ApplicationController
 		else
 			flash[:error] = "Something went wrong"
 		end
-		redirect_to timeline_path
+		redirect_to newsfeed_path
 
 	end
 

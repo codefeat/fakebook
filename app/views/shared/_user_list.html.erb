@@ -1,0 +1,7 @@
+<% @users.sort_by { |u| u.full_name }.each do |user| %>
+
+<div class="user-container">
+	<p><%= image_tag user.profile.avatar.url(:thumb) %> <%=link_to user.full_name, profile_path(user.id) %> </p>
+</div>
+
+<% end %>

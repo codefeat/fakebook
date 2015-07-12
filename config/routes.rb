@@ -4,11 +4,12 @@ Rails.application.routes.draw do
                     omniauth_callbacks: "omniauth_callbacks"}
 
   root 'static_pages#home'
-  get 'timeline' => 'users#timeline'
+  get 'newsfeed' => 'users#newsfeed'
   get 'profiles/:id' => 'profiles#show'
   resources :profiles, :only => [:edit, :update]
   resources :posts, :only => [:new, :create, :destroy]
   resources :comments, :only => [:new, :create, :destroy]
+  resources :users, :only => [:index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

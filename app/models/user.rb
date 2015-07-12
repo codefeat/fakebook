@@ -13,8 +13,12 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :outgoing_requests
+  has_many :incomming_requests
 
-  	def full_name
+
+	
+	def full_name
 		self.first_name + " " + self.last_name
 	end
 
@@ -26,5 +30,9 @@ class User < ActiveRecord::Base
 			user.uid = data.uid
 			user.password = Devise.friendly_token[0,20]
 		end
+	end
+
+	def self.send_friend_request_to(user)
+		self.friendships.create(requestee_id: user.id)
 	end
 end
