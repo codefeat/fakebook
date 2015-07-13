@@ -12,5 +12,10 @@ class UsersController < ApplicationController
 		@posts = @user.posts
 	end
 
+	def notifications
+		@user = current_user
+		@notifications = @user.notifications
+	end
+
 
 end

@@ -1,0 +1,12 @@
+<% if current_user.is_friends_with?(@user) %>
+	<button type="button" class="btn btn-success">Friend</button>
+<% elsif current_user == @user %>
+<% elsif current_user.has_pending_request_to?(@user) %>
+	<button type="button" class="btn btn-primary">Request Pending</button>
+<% else %>
+	<%= form_for Friendship.new do |f| %>
+		<%= f.hidden_field :requestor_id, value: current_user.id %>
+		<%= f.hidden_field :requestee_id, value: @user.id %>
+		<%= f.submit "Send Request", class: "btn btn primary" %>
+	<% end %>
+<% end %>

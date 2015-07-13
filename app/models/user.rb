@@ -13,8 +13,10 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :outgoing_requests
-  has_many :incomming_requests
+  has_many :outgoing_requests, class_name: :Friendship, foreign_key: :requestor_id, 
+  						dependent: :destroy
+  has_many :incoming_requests, class_name: :Friendship, foreign_key: :requestee_id, 
+  						dependent: :destroy
 
 
 	
@@ -32,7 +34,32 @@ class User < ActiveRecord::Base
 		end
 	end
 
-	def self.send_friend_request_to(user)
-		self.friendships.create(requestee_id: user.id)
+	def send_friend_request_to(user)
+		self.outgoing_requests.create(requestee_id: user.id)
 	end
+
+	def is_friends_with?(user)
+  		self.friended_by?(user) || self.friended_to?(user)
+  	end
+
+  	def friended_by?(user)
+  		self.incoming_requests.find_by(requestor_id: user.id, accepted: true)
+ 	end
+
+  	def friended_to?(user)
+  		self.outgoing_requests.find_by(requestee_id: user.id, accepted: true)
+ 	end
+
+	def has_pending_request_to?(user)
+ 	 	Friendship.find_by(requestee_id: user.id, requestor_id: self.id, accepted: false)
+	end
+
+  	def has_pending_request_from?(user)
+  		Friendship.find_by(requestee_id: self.id, requestor_id: user.id, accepted: false)
+	end
+
+	def notifications
+		self.incoming_requests.where(accepted: false)
+	end
+
 end

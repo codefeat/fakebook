@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'friendships/create'
+
   devise_for :users, controllers: { registrations: "registrations", 
                     omniauth_callbacks: "omniauth_callbacks"}
 
   root 'static_pages#home'
   get 'newsfeed' => 'users#newsfeed'
+  get 'notifications' => 'users#notifications'
   get 'profiles/:id' => 'profiles#show'
   resources :profiles, :only => [:edit, :update]
   resources :posts, :only => [:new, :create, :destroy]
   resources :comments, :only => [:new, :create, :destroy]
   resources :users, :only => [:index]
+  resources :friendships, :only => [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

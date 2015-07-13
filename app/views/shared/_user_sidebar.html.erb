@@ -1,14 +1,16 @@
 <div class="col-md-2">
 <%= image_tag @user.profile.avatar.url(:small) %>
 <h4><%= link_to @user.full_name, profile_path(@user.id) %></h4>
+
 <p><b>Gender: </b><%= @user.profile.gender %></p>
 <p><b>Location:</b> <%= @user.profile.location %></p>
 <p><b>Birthdate:</b> <%= @user.profile.birthday %></p>
+<%= render 'shared/friend_badge' %>
 
 <% if @user == current_user %>
 <p><%= link_to "Edit Profile", edit_profile_path(current_user.id) %></p>
 <p><%= link_to "My Newsfeed", newsfeed_path %></p>
-<p><%= link_to "My Notifications", '#' %></p>
+<p><%= link_to "My Notifications", notifications_path %></p>
 <% end %>
 
 </div>
