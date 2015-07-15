@@ -10,6 +10,13 @@
 <% else %>
 	<% @notifications.each do |n| %>
 	<p><%= image_tag n.requestor.profile.avatar.url(:thumb) %> <%= link_to n.requestor.full_name, profile_path(n.requestor.id) %> would like to be friends</p>
+
+		<%= form_for n, method: :delete do |note| %>
+		<%= note.button "Delete request", class: "btn btn-danger" %>
+		<% end %>
+		<%= form_for n, method: :accept do |note| %>
+		<%= note.button "Accept request", class: "btn btn-success" %>
+		<% end %>
 	<% end %>
 <% end %>
 

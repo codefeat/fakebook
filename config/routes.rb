@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'newsfeed' => 'users#newsfeed'
   get 'notifications' => 'users#notifications'
   get 'profiles/:id' => 'profiles#show'
+  post 'friendships/:id' => 'friendships#accept'
   resources :profiles, :only => [:edit, :update]
   resources :posts, :only => [:new, :create, :destroy]
   resources :comments, :only => [:new, :create, :destroy]
