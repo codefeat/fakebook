@@ -16,4 +16,4 @@
 /config/application.yml
 
 # Ignore avatar photos
-/public/system/profiles/avatars/*
+#/public/system/profiles/avatars/*
