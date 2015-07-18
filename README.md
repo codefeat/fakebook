@@ -1,6 +1,6 @@
 Fakebook is a social network clone created for the final project of The Odin Project's Ruby on Rails module found at: http://www.theodinproject.com/ruby-on-rails/final-project
 
-Feel free to check out the code in production at: odin-fakebook.herokuapp.com/
+Feel free to check out the code in production at: http://odin-fakebook.herokuapp.com/
 
 You can log in via OAuth with a Facebook account or just create an account with email/password.
 
