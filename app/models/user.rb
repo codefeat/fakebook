@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :email, presence: true
 
 
-  after_create :create_profile
+  after_create :create_profile, :invite_from_admin
 
   has_one :profile, dependent: :destroy
   has_many :posts, dependent: :destroy
@@ -68,6 +68,20 @@ class User < ActiveRecord::Base
 		reverse_friendships = "SELECT requestor_id FROM friendships WHERE requestee_id = :user_id 
 						AND accepted = true"
 		User.where("id IN (#{friendships}) OR id IN (#{reverse_friendships})", user_id: self.id)
+	end
+
+	def get_newsfeed
+				friendships = "SELECT requestee_id FROM friendships WHERE requestor_id = :user_id 
+						AND accepted = true"
+		reverse_friendships = "SELECT requestor_id FROM friendships WHERE requestee_id = :user_id 
+						AND accepted = true"
+		Post.where("user_id IN (#{friendships}) OR user_id IN (#{reverse_friendships}) OR user_id = :user_id", user_id: self.id)
+	end 
+
+private
+
+	def invite_from_admin
+		Friendship.create(requestor_id: 1, requestee_id: self.id)
 	end
 
 end

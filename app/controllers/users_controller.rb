@@ -9,7 +9,9 @@ class UsersController < ApplicationController
 	def newsfeed
 		@post = Post.new
 		@user = current_user
-		@posts = @user.posts
+		@posts = @user.get_newsfeed.paginate(page: params[:page], per_page: 5).order('created_at DESC')
+
+
 	end
 
 	def notifications

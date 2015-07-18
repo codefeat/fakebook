@@ -16,6 +16,8 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
 gem 'paperclip'
+gem 'will_paginate', '~> 3.0.6'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
 

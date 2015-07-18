@@ -7,6 +7,6 @@
 	<%= form_for Friendship.new do |f| %>
 		<%= f.hidden_field :requestor_id, value: current_user.id %>
 		<%= f.hidden_field :requestee_id, value: @user.id %>
-		<%= f.submit "Send Request", class: "btn btn primary" %>
+		<%= f.submit "Send Request", class: "btn btn-primary" %>
 	<% end %>
 <% end %>

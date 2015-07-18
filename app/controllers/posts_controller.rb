@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 		else
 			flash[:error] = "Something went wrong"
 		end
-		redirect_to newsfeed_path
+		redirect_to :back
 
 	end
 

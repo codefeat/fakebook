@@ -21,7 +21,7 @@ class ProfilesController < ApplicationController
 		@user = User.find(params[:id])
 		@profile = @user.profile
 		@post = Post.new
-		@posts = @user.posts
+		@posts = @user.posts.paginate(page: params[:page], per_page: 5).order('created_at DESC')
 	end
 
 private

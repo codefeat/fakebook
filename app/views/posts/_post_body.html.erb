@@ -1,7 +1,7 @@
 <div class="post-box">
 <table class="post-table">
 	<tr>
-		<th rowspan="2"><%= image_tag @user.profile.avatar.url(:thumb) %></th>
+		<th rowspan="2"><%= image_tag post.user.profile.avatar.url(:thumb) %></th>
 		<td class="post-header"><%= link_to post.user.full_name, profile_path(post.user.id) %> posted:</td>
 	</tr>
 	<tr>
