@@ -1,49 +1,12 @@
 <% @posts.sort_by{ |p| p.created_at}.reverse.each do |post| %>
 
-<div class="post-box">
-<table class="post-table">
-	<tr>
-		<th rowspan="2"><%= image_tag @user.profile.avatar.url(:thumb) %></th>
-		<td class="post-header"><%= link_to post.user.full_name, profile_path(post.user.id) %> posted:</td>
-	</tr>
-	<tr>
-		<td><%= time_ago_in_words(post.created_at) %> ago</td>
-	</tr>
-</table><br/>
-<p>"<%= post.content %>"</p>
-<% if current_user == post.user %>
-<p><%= link_to "Delete", post, method: :delete,
-		data: { confirm: "Are you sure you want to delete this post?" } %></p>
-<% end %>
+	<%= render '/posts/post_body', post: post %>
 
-<% post.comments.each do |comment| %>
+	<% post.comments.each do |comment| %>
+		<%= render '/comments/comment_body', comment: comment %>
+	<% end %>
 
-<div class="comment-container">
-	<table class="comment-table">
-	<tr>
-		<th rowspan=2><%= image_tag comment.user.profile.avatar.url(:thumb), size: "30x30" %></th>
-		<td><p class=""><%=link_to comment.user.full_name, profile_path(comment.user) %> commented:</p></th>
-	</tr>
-	<tr><td><%= time_ago_in_words(comment.created_at) %> ago</td></tr>
+	<%= render '/comments/comment_form', post: post  %>
 
-	<tr><td colspan=2><%= comment.content %></td></tr>
-
-</table>
-</div>
-<% end %>
-
-<div class="comment-form-box">
-<%= form_for(Comment.new) do |c| %>
-<%= c.hidden_field :post_id, value: post.id %>
-<%= c.text_area :content, class: "comment-field", placeholder: "Add comment" %>
-<div class="post-form-footer">
-<%= c.submit "Post", class: "btn btn-default btn-sm" %>
-</div>
-
-<% end %>
-</div>
-
-</div>
-
-
+	</div>
 <% end %>

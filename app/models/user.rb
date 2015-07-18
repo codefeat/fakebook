@@ -17,9 +17,9 @@ class User < ActiveRecord::Base
   						dependent: :destroy
   has_many :incoming_requests, class_name: :Friendship, foreign_key: :requestee_id, 
   						dependent: :destroy
+  has_many :likes, dependent: :destroy
 
 
-	
 	def full_name
 		self.first_name + " " + self.last_name
 	end
@@ -60,6 +60,14 @@ class User < ActiveRecord::Base
 
 	def notifications
 		self.incoming_requests.where(accepted: false)
+	end
+
+	def get_friends
+		friendships = "SELECT requestee_id FROM friendships WHERE requestor_id = :user_id 
+						AND accepted = true"
+		reverse_friendships = "SELECT requestor_id FROM friendships WHERE requestee_id = :user_id 
+						AND accepted = true"
+		User.where("id IN (#{friendships}) OR id IN (#{reverse_friendships})", user_id: self.id)
 	end
 
 end

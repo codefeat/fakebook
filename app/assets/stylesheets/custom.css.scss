@@ -42,8 +42,8 @@ body {
 	width: 80%;
 }
 
-.welcome_box {
-	margin-top: 20px;
+.welcome-box {
+	margin-top: 150px;
 }
 
 .signin_box {
@@ -67,7 +67,6 @@ body {
 	width: 75%;
 	background-color: white;
 	margin-top: 25px;
-	border-bottom: 2px;
 	border-radius: 5px;
 }
 
@@ -86,7 +85,6 @@ body {
 
 .post-form-footer {
 	padding: 5px;
-
 	text-align: right;
 	background-color: #EDEDED;
 }
@@ -111,8 +109,12 @@ textarea {
 	}
 
 .comment-form-box {
-		border-top: 1px solid gray;
-		width: 75;
+	border-top: 1px solid gray;
+	width: 75;
+}
+
+.comment-form-footer {
+	text-align: right;
 }
 
 .comment-table {
@@ -123,3 +125,11 @@ textarea {
 	border-top: 1px solid gray;
 }
 
+.like-link {
+	padding: 3px;
+	border-radius: 10%;
+}
+
+.delete-link {
+	text-align: right;
+}

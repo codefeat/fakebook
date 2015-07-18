@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 		else
 			flash[:error] = "Something happened."
 		end
-		redirect_to newsfeed_path
+		redirect_to :back
 	end
 
 private

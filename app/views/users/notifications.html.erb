@@ -5,7 +5,7 @@
 
 <h2>My Notifications</h2>
 
-<% if @notifications == nil %>
+<% if @notifications.empty? %>
 	<h4><em>No Notifications</em></h4>
 <% else %>
 	<% @notifications.each do |n| %>

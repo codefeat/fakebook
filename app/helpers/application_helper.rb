@@ -9,5 +9,12 @@ module ApplicationHelper
     end
   end
 
+  def error_flash
+  	flash[:warning] = "Something went wrong"
+  end
+
+  def success_flash
+  	flash[:success] = "Success!"
+  end
 
 end

@@ -1,0 +1,9 @@
+<div class="comment-form-box">
+	<%= form_for(Comment.new) do |c| %>
+		<%= c.hidden_field :post_id, value: post.id %>
+		<%= c.text_area :content, class: "comment-field", placeholder: "Add comment" %>
+		<div class="comment-form-footer">
+			<%= c.submit "Post", class: "btn btn-default btn-sm" %>
+		</div>
+		<% end %>
+</div>

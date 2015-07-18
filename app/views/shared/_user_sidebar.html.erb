@@ -10,7 +10,8 @@
 <% if @user == current_user %>
 <p><%= link_to "Edit Profile", edit_profile_path(current_user.id) %></p>
 <p><%= link_to "My Newsfeed", newsfeed_path %></p>
-<p><%= link_to "My Notifications", notifications_path %></p>
+<p><%= link_to "My Notifications (#{@user.notifications.count})", notifications_path %></p>
+<p><%= link_to "My Friends", friends_path %></p>
 <% end %>
 
 </div>

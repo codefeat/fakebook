@@ -2,7 +2,7 @@
 
 
 
-	<div class="col-md-6 welcome_box">
+	<div class="col-md-6 welcome-box">
 
 	  <% flash.each do |key, value| %>
         <div class="<%= flash_class(key) %>">
@@ -10,15 +10,16 @@
         </div>
   	<% end %>
 
-
-		<h2 class="center">Welcome to fakebook</h2>
-		<p>This site is a clone of a popular site you may have seen before. You should find much of the same functionality available here.</p>
-		<p>You will be able to:</p>
-		<ul>
-			<li>Manage and edit your profile</li>
-			<li>Search and add friends</li>
-			<li>Share posts and photos</li>
-			<li>Like and comment on others' posts</li>
+	  	<div class="welcome-message">
+			<h2 class="center">Welcome to fakebook</h2>
+			<p>This site is a clone of a popular site you may have seen before. You should find much of the same functionality available here.</p>
+			<p>You will be able to:</p>
+			<ul>
+				<li>Manage and edit your profile</li>
+				<li>Search and add friends</li>
+				<li>Share posts and photos</li>
+				<li>Like and comment on others' posts</li>
+		</div>
 	</div>
 
 	<div class="col-md-6 welcome_box signin_box">

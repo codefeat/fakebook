@@ -1,0 +1,19 @@
+<div class="comment-container">
+	<table class="comment-table">
+	<tr>
+		<th rowspan=2><%= image_tag comment.user.profile.avatar.url(:thumb), size: "30x30" %></th>
+		<td><p class=""><%=link_to comment.user.full_name, profile_path(comment.user) %> commented:</p></th>
+	</tr>
+	<tr><td><%= time_ago_in_words(comment.created_at) %> ago</td></tr>
+
+	<tr><td colspan=2><%= comment.content %></td></tr>
+
+</table>
+
+<% if current_user == comment.user %>
+<p class="delete-link"><%= link_to "Delete", comment, method: :delete,
+		data: { confirm: "Are you sure you want to delete this comment?" } %></p>
+<% end %>
+
+<%= render '/likes/like_link', likable_id: comment.id, likable_type: "Comment", item: comment %>
+</div>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	
+
 	def index
   		@users = User.all
   		@user = current_user
@@ -17,5 +17,8 @@ class UsersController < ApplicationController
 		@notifications = @user.notifications
 	end
 
-
+	def friend_list
+		@user = current_user
+		@friends = current_user.get_friends
+	end
 end

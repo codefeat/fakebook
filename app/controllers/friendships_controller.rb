@@ -9,7 +9,7 @@ class FriendshipsController < ApplicationController
 		else
 			flash[:warning] = "Something went wrong"
 		end
-		redirect_to newsfeed_path
+		redirect_to :back
 	end
 
 	def destroy
