@@ -2,11 +2,10 @@
       <div class="container">
         <%= link_to "fakebook", root_path, id: "logo" %>
         <nav>
-          <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Find Friends", users_path %></li>
-			<li><%= link_to current_user.email, newsfeed_path %></li>
-			<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %> 
-
+          <ul class="nav navbar-nav  navbar-right">
+            <li><%= link_to "Find Friends", users_path, class: "header-link"  %></li>
+			      <li><%= link_to current_user.email, newsfeed_path, class: "header-link" %></li>
+			      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "header-link"  %> 
           </ul>
         </nav>
       </div>
