@@ -18,7 +18,8 @@ gem 'figaro'
 gem 'paperclip'
 gem 'will_paginate', '~> 3.0.6'
 gem 'bootstrap-will_paginate'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
+gem 'aws-s3'
 
 group :development, :test do
 
